@@ -39,7 +39,6 @@ class Steganography:
         return new
     
     
-    #ALERT!! issues in retreiving bytes. to test again.
     def reverse():
         final = Steganography.steganography()
         #to convert int array from cover image to binary
