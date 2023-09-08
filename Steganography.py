@@ -23,7 +23,6 @@ class Steganography:
             for j in range (256):
                 grey_image1[i][j] = grey_image1[i][j] & 240  
 
-
         #to mask the 4 msb digits of secret image at the end by shifting them right
         for i in range (256):
             for j in range (256):
@@ -31,13 +30,12 @@ class Steganography:
                     grey_image2[i][j] = grey_image2[i][j] >> 3
                 elif len(np.binary_repr(grey_image2[i][j])) == 8:
                     grey_image2[i][j] = grey_image2[i][j] >> 4        
-        
+                    
         #merging msb of secret image as lsb of cover image 
         for i in range (256):
             for j in range (256):
                 new[i][j] = grey_image1[i][j] + grey_image2[i][j]
         new = new.astype(int) 
-        
         return new
     
     
@@ -47,11 +45,13 @@ class Steganography:
         #to convert int array from cover image to binary
         for i in range (256):
             for j in range (256):
-                final[i][j] = np.binary_repr(final[i][j]) 
                 final[i][j] = final[i][j] & 15
-                #final[i][j] = final[i][j] << 4         
-        return final        
+                final[i][j] = final[i][j] << 4         
+        return final
+    
+            
 
+                
         
    
         
